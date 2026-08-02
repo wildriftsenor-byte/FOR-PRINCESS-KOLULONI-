@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Princess Koluloni</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Georgia,serif;
+font-style:italic;
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(
+135deg,
+#fff8fc,
+#ffe5f0,
+#ffffff);
+
+}
+
+/* Sparkling background */
+
+.star{
+
+position:absolute;
+
+width:3px;
+
+height:3px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+0 0 8px white,
+0 0 15px #ffd7ea;
+
+animation:twinkle 2.5s infinite;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{
+
+opacity:.2;
+transform:scale(.8);
+
+}
+
+50%{
+
+opacity:1;
+transform:scale(2);
+
+}
+
+}
+
+.container{
+
+position:relative;
+
+text-align:center;
+
+width:90%;
+
+max-width:760px;
+
+}
+
+/* Envelope */
+
+#envelope{
+
+position:relative;
+
+width:320px;
+
+height:220px;
+
+margin:auto;
+
+cursor:pointer;
+
+transition:1s;
+
+}
+
+/* back */
+
+.back{
+
+position:absolute;
+
+bottom:0;
+
+width:320px;
+
+height:180px;
+
+background:#f8b8d0;
+
+border-radius:12px;
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.25);
+
+}
+
+/* front pocket */
+
+.front{
+
+position:absolute;
+
+bottom:0;
+
+width:0;
+
+height:0;
+
+border-left:160px solid transparent;
+
+border-right:160px solid transparent;
+
+border-bottom:110px solid #f49bbc;
+
+z-index:4;
+
+}
+
+/* flap */
+
+.flap{
+
+position:absolute;
+
+top:0;
+
+width:0;
+
+height:0;
+
+border-left:160px solid transparent;
+
+border-right:160px solid transparent;
+
+border-top:110px solid #eb79a6;
+
+transform-origin:top;
+
+transition:1s;
+
+z-index:6;
+
+}
+
+/* flower seal */
+
+.seal{
+
+position:absolute;
+
+left:50%;
+
+top:135px;
+
+transform:translateX(-50%);
+
+width:46px;
+
+height:46px;
+
+background:#ff5d97;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 0 7px #ffd8e8,
+
+0 0 15px hotpink;
+
+z-index:8;
+
+}
+
+.seal:before{
+
+content:"✿";
+
+position:absolute;
+
+left:50%;
+
+top:50%;
+
+transform:translate(-50%,-50%);
+
+color:white;
+
+font-size:25px;
+
+font-style:normal;
+
+}
+
+.note{
+
+margin-top:30px;
+
+font-size:28px;
+
+color:#bf4b80;
+
+}
+
+#letter{
+
+display:none;
+
+position:relative;
+
+background:#fffdf8;
+
+padding:45px;
+
+border-radius:18px;
+
+box-shadow:
+
+0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.message{
+
+font-size:15px;
+
+font-weight:bold;
+
+line-height:1.50;
+
+background:linear-gradient(
+
+90deg,
+
+#ff1493,
+
+#ff69b4,
+
+#ffd6e8,
+
+#ff69b4,
+
+#ff1493
+
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:glitter 4s linear infinite;
+
+}
+
+.message p{
+    margin:12x 0;
+}
+
+
+@keyframes glitter{
+
+from{
+
+background-position:0%;
+
+}
+
+to{
+
+background-position:300%;
+
+}
+
+}
+
+/* Hanging superhero */
+
+.web{
+
+position:absolute;
+
+left:-70px;
+
+top:-100px;
+
+width:2px;
+
+height:150px;
+
+background:#999;
+
+}
+
+.hero{
+
+position:absolute;
+
+left:-93px;
+
+top:40px;
+
+width:48px;
+
+height:60px;
+
+background:#222;
+
+border-radius:20px 20px 18px 18px;
+
+animation:swing 2.5s ease-in-out infinite alternate;
+
+}
+
+.hero:before{
+
+content:"";
+
+position:absolute;
+
+width:28px;
+
+height:28px;
+
+left:10px;
+
+top:-18px;
+
+background:#222;
+
+border-radius:50%;
+
+}
+
+.hero:after{
+
+content:"";
+
+position:absolute;
+
+left:16px;
+
+top:18px;
+
+width:16px;
+
+height:18px;
+
+border-left:3px solid white;
+
+border-right:3px solid white;
+
+opacity:.7;
+
+}
+
+@keyframes swing{
+
+from{
+
+transform:rotate(-12deg);
+
+}
+
+to{
+
+transform:rotate(12deg);
+
+}
+
+}
+
+/* Buttons */
+
+.buttons{
+
+margin-top:35px;
+
+}
+
+button{
+
+padding:14px 36px;
+
+margin:12px;
+
+font-size:8px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-style:italic;
+
+}
+
+#yes{
+
+background:#ff69b4;
+
+color:white;
+
+}
+
+#yes:hover{
+
+transform:scale(1.08);
+
+}
+
+#no{
+
+background:#ececec;
+
+}
+
+#no:hover{
+
+transform:scale(1.08);
+
+}
+
+#result{
+
+margin-top:28px;
+
+font-size:18px;
+
+font-weight:bold;
+
+color:#ff1493;
+
+}
+
+/* Confetti */
+
+.confetti{
+
+position:fixed;
+
+width:10px;
+
+height:10px;
+
+top:-20px;
+
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="envelope">
+
+<div class="back"></div>
+
+<div class="front"></div>
+
+<div class="flap" id="flap"></div>
+
+<div class="seal"></div>
+
+</div>
+
+<div class="note">
+
+For Kolu's eyes only
+
+</div>
+
+<div id="letter">
+
+<div class="web"></div>
+
+<div class="hero"></div>
+
+<div class="message">
+
+<p>It's a Brand New Day!</p>
+
+<p>Good morning, Princess Koluloni.</p>
+
+<p>Ready to watch Spider-Man on the big screen?</p>
+
+</div>
+
+<div class="buttons">
+
+<button id="yes">YES</button>
+
+<button id="no">NO</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+<script>
+
+/* Create sparkling stars */
+
+for(let i=0;i<70;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+star.style.animationDelay=Math.random()*3+"s";
+
+document.body.appendChild(star);
+
+}
+
+const envelope=document.getElementById("envelope");
+
+const flap=document.getElementById("flap");
+
+const letter=document.getElementById("letter");
+
+const note=document.querySelector(".note");
+
+const yes=document.getElementById("yes");
+
+const no=document.getElementById("no");
+
+const result=document.getElementById("result");
+
+envelope.addEventListener("click",function(){
+
+/* Open the flap */
+flap.style.transform="rotateX(180deg)";
+
+/* Fade the envelope and note */
+setTimeout(function(){
+
+envelope.style.opacity="0";
+
+note.style.opacity="0";
+
+},700);
+
+/* Hide the envelope and show the letter */
+setTimeout(function(){
+
+envelope.style.display="none";
+
+note.style.display="none";
+
+letter.style.display="block";
+
+},1200);
+
+});
+
+yes.addEventListener("click",function(){
+
+result.innerHTML="(^_^)<br><br>Let's go!";
+
+confetti();
+
+});
+
+no.addEventListener("click",function(){
+
+result.innerHTML="(;_;)<br><br>Wow! Ok, I züo büboi.";
+
+});
+
+function confetti(){
+
+const colors=[
+"#ff69b4",
+"#ffd700",
+"#87cefa",
+"#98fb98",
+"#ffa500",
+"#ff1493",
+"#ffffff"
+];
+
+for(let i=0;i<180;i++){
+
+let piece=document.createElement("div");
+
+piece.className="confetti";
+
+piece.style.left=Math.random()*100+"vw";
+
+piece.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+piece.style.width=(6+Math.random()*8)+"px";
+
+piece.style.height=piece.style.width;
+
+piece.style.animationDuration=
+(2+Math.random()*3)+"s";
+
+document.body.appendChild(piece);
+
+setTimeout(function(){
+
+piece.remove();
+
+},5000);
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
